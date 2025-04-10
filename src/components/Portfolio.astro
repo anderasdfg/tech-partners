@@ -1,0 +1,105 @@
+---
+const projects = [
+  {
+    title: 'E-commerce Platform',
+    description: 'A modern e-commerce platform with real-time inventory management and payment processing.',
+    image: 'https://i0.wp.com/port2flavors.com/wp-content/uploads/2022/07/placeholder-614.png?fit=1200%2C800&ssl=1',
+    tags: ['React', 'Node.js', 'MongoDB'],
+  },
+  {
+    title: 'Healthcare App',
+    description: 'A mobile application for healthcare providers to manage patient records and appointments.',
+    image: 'https://i0.wp.com/port2flavors.com/wp-content/uploads/2022/07/placeholder-614.png?fit=1200%2C800&ssl=1',
+    tags: ['React Native', 'Firebase', 'Redux'],
+  },
+  {
+    title: 'AI Analytics Dashboard',
+    description: 'An analytics dashboard powered by artificial intelligence for business insights.',
+    image: 'https://i0.wp.com/port2flavors.com/wp-content/uploads/2022/07/placeholder-614.png?fit=1200%2C800&ssl=1',
+    tags: ['Python', 'TensorFlow', 'React'],
+  },
+];
+---
+<section id="portfolio" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4 animate-fade-up">
+        Our Work
+      </h2>
+      <p class="text-xl text-gray-600 animate-fade-up animate-delay-200">
+        Discover how we've helped businesses achieve their digital goals
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <div class={`group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 animate-fade-up animate-delay-${(index + 2) * 200}`}>
+          <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+            <img
+              src={project.image}
+              alt={project.title}
+              class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-display font-bold text-gray-900 mb-2">
+              {project.title}
+            </h3>
+            <p class="text-gray-600 mb-4">{project.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span class="px-3 py-1 bg-primary-100 text-primary-600 rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <a
+                href="#"
+                class="inline-block bg-white text-gray-900 font-semibold px-6 py-2 rounded-lg hover:bg-primary-600 hover:text-white transition-colors duration-300"
+              >
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animate-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animate-delay-800 {
+    animation-delay: 0.8s;
+  }
+</style> 
