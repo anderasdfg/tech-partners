@@ -1,21 +1,90 @@
 ---
-import { Image } from 'astro:assets';
----
 
+
+const title1 = "Transform your ideas into" 
+const title2 = "Digital Reality" 
+---
 <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-primary-100 via-secondary-100 to-primary-50 opacity-50"></div>
-  
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-display font-bold text-gray-900 mb-6 animate-fade-up">
-        Transform Your Ideas into Digital Reality
-      </h1>
-      
-      <p class="text-xl md:text-2xl text-gray-600 mb-8 animate-fade-up animate-delay-200">
-        We help businesses and entrepreneurs build innovative digital solutions that drive growth and success.
-      </p>
-      
-      <div class="animate-fade-up animate-delay-400">
+<div class="shape-hero relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-gradient-to-br dark:from-[#F0FDF5] dark:to-[#f0f9ff]">
+  <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] via-transparent to-rose-500/[0.02] dark:from-indigo-500/[0.05] dark:via-transparent dark:to-rose-500/[0.05] blur-3xl"></div>
+
+  <div class="absolute inset-0 overflow-hidden">
+    <!-- Tall rectangle - top left -->
+    <div class="elegant-shape absolute left-[-15%] top-[-10%]" data-delay="0.3" data-width="300" data-height="500" data-rotate="-8" data-gradient="from-indigo-500/[0.25] dark:from-indigo-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-indigo-500/[0.25] dark:from-indigo-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 24px;"></div>
+      </div>
+    </div>
+
+    <!-- Wide rectangle - bottom right -->
+    <div class="elegant-shape absolute right-[-20%] bottom-[-5%]" data-delay="0.5" data-width="600" data-height="200" data-rotate="15" data-gradient="from-rose-500/[0.25] dark:from-rose-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-rose-500/[0.25] dark:from-rose-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 20px;"></div>
+      </div>
+    </div>
+
+    <!-- Square - middle left -->
+    <div class="elegant-shape absolute left-[-5%] top-[40%]" data-delay="0.4" data-width="300" data-height="300" data-rotate="24" data-gradient="from-violet-500/[0.25] dark:from-violet-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-violet-500/[0.25] dark:from-violet-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 32px;"></div>
+      </div>
+    </div>
+
+    <!-- Small rectangle - top right -->
+    <div class="elegant-shape absolute right-[10%] top-[5%]" data-delay="0.6" data-width="250" data-height="100" data-rotate="-20" data-gradient="from-amber-500/[0.25] dark:from-amber-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-amber-500/[0.25] dark:from-amber-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 12px;"></div>
+      </div>
+    </div>
+
+    <!-- Medium rectangle - center right -->
+    <div class="elegant-shape absolute right-[-10%] top-[45%]" data-delay="0.7" data-width="400" data-height="150" data-rotate="35" data-gradient="from-emerald-500/[0.25] dark:from-emerald-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-emerald-500/[0.25] dark:from-emerald-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 16px;"></div>
+      </div>
+    </div>
+
+    <!-- Small square - bottom left -->
+    <div class="elegant-shape absolute left-[20%] bottom-[10%]" data-delay="0.2" data-width="200" data-height="200" data-rotate="-25" data-gradient="from-blue-500/[0.25] dark:from-blue-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-blue-500/[0.25] dark:from-blue-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 28px;"></div>
+      </div>
+    </div>
+
+    <!-- Tiny rectangle - top center -->
+    <div class="elegant-shape absolute left-[40%] top-[15%]" data-delay="0.8" data-width="150" data-height="80" data-rotate="45" data-gradient="from-purple-500/[0.25] dark:from-purple-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-purple-500/[0.25] dark:from-purple-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 10px;"></div>
+      </div>
+    </div>
+
+    <!-- Wide rectangle - middle -->
+    <div class="elegant-shape absolute left-[25%] top-[60%]" data-delay="0.9" data-width="450" data-height="120" data-rotate="-12" data-gradient="from-teal-500/[0.25] dark:from-teal-500/[0.35]">
+      <div class="shape-container relative">
+        <div class="shape-content absolute inset-0 bg-gradient-to-r to-transparent from-teal-500/[0.25] dark:from-teal-500/[0.35] backdrop-blur-[1px] ring-1 ring-white/[0.03] dark:ring-white/[0.02] shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] after:rounded-[inherit]" style="border-radius: 18px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-4 md:px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="fade-up-1">
+        <h1 class="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
+          <span class="bg-clip-text text-transparent bg-gradient-to-b from-black to-black/80">
+            {title1}
+          </span>
+          <br />
+          <span class="pacifico-font bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-black/90 to-rose-300">
+            {title2}
+          </span>
+        </h1>
+      </div>
+      <!-- <div class="fade-up-2">
+        <p class="text-base sm:text-lg md:text-xl text-black/40 dark:text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+          UI Components built with Tailwind CSS.
+        </p>
+      </div> -->
+      <div class="animate-fade-up animate-delay-400 fade-up-2">
         <a
           href="#contact"
           class="inline-block bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200"
@@ -26,34 +95,96 @@ import { Image } from 'astro:assets';
     </div>
   </div>
 
-  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/80 pointer-events-none"></div>
+</div>
 </section>
 
 <style>
-  section {
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230ea5e9' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico:wght@400&display=swap');
+  
+  .pacifico-font {
+    font-family: 'Pacifico', cursive;
   }
 
-  @keyframes fade-up {
-    from {
+  .elegant-shape {
+    opacity: 0;
+    transform: translateY(-150px);
+    animation: shapeEntry 2.4s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards;
+  }
+
+  .shape-container {
+    animation: floatAnimation 12s ease-in-out infinite;
+  }
+
+  .fade-up-1 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s cubic-bezier(0.25, 0.4, 0.25, 1) 0.7s forwards;
+  }
+
+  .fade-up-2 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s cubic-bezier(0.25, 0.4, 0.25, 1) 0.9s forwards;
+  }
+
+  @keyframes shapeEntry {
+    0% {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(-150px) rotate(var(--initial-rotate));
     }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotate(var(--final-rotate));
+    }
+  }
+
+  @keyframes floatAnimation {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(15px);
+    }
+  }
+
+  @keyframes fadeUp {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
+</style>
 
-  .animate-fade-up {
-    animation: fade-up 0.8s ease-out forwards;
-  }
-
-  .animate-delay-200 {
-    animation-delay: 0.2s;
-  }
-
-  .animate-delay-400 {
-    animation-delay: 0.4s;
-  }
-</style> 
+<script>
+  // Inicializar las animaciones cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    const shapes = document.querySelectorAll('.elegant-shape');
+    
+    shapes.forEach((shape) => {
+      const delay = parseFloat(shape.getAttribute('data-delay') || '0');
+      const width = shape.getAttribute('data-width') || '400';
+      const height = shape.getAttribute('data-height') || '100';
+      const rotate = parseFloat(shape.getAttribute('data-rotate') || '0');
+      
+      // Establecer el delay de animación
+      if (shape instanceof HTMLElement) {
+        shape.style.animationDelay = `${delay}s`;
+        
+        // Establecer las variables CSS para la rotación
+        shape.style.setProperty('--initial-rotate', `${rotate - 15}deg`);
+        shape.style.setProperty('--final-rotate', `${rotate}deg`);
+      }
+      
+      // Establecer dimensiones del contenedor
+      const container = shape.querySelector('.shape-container');
+      if (container instanceof HTMLElement) {
+        container.style.width = `${width}px`;
+        container.style.height = `${height}px`;
+      }
+    });
+  });
+</script>
