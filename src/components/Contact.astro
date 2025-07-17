@@ -100,17 +100,21 @@
 </style>
 
 <script>
+  import { submitContactForm } from '../services/contact-service';
+
   const form = document.querySelector('form');
   
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(formData);
-    
+    const data = {
+      name: formData.get('name')?.toString() || '',
+      email: formData.get('email')?.toString() || '',
+      message: formData.get('message')?.toString() || '',
+    };
     try {
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', data);
+      await submitContactForm(data);
       alert('Thank you for your message! We will get back to you soon.');
       (e.target as HTMLFormElement).reset();
     } catch (error) {
