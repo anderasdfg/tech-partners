@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navigation from '../../components/Navigation.astro';
+import Hero from '../../components/Hero.tsx';
+import Services from '../../components/Services.astro';
+import Portfolio from '../../components/Portfolio.astro';
+import Approach from '../../components/Approach.astro';
+import Contact from '../../components/Contact.tsx';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Tech Partners - Tecnología que evoluciona contigo" lang="es">
+	<Navigation />
+	<Hero client:load />
+	<Services />
+	<Portfolio />
+	<Approach />
+	<Contact client:load />
+	<Footer />
+</Layout> 

@@ -1,0 +1,125 @@
+---
+import { useTranslations } from '../lib/i18n';
+import { getLangFromUrl } from '../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projects = [
+  {
+    title: t('portfolio.projects.ecommerce.title'),
+    description: t('portfolio.projects.ecommerce.description'),
+    tech: ["React", "Node.js", "AI", "Cloud"],
+    image: "/project1.jpg",
+  },
+  {
+    title: t('portfolio.projects.fintech.title'),
+    description: t('portfolio.projects.fintech.description'),
+    tech: ["React Native", "Blockchain", "Security"],
+    image: "/project2.jpg",
+  },
+  {
+    title: t('portfolio.projects.healthcare.title'),
+    description: t('portfolio.projects.healthcare.description'),
+    tech: ["Vue.js", "IoT", "Real-time", "Analytics"],
+    image: "/project3.jpg",
+  },
+  {
+    title: t('portfolio.projects.ecommerce.title'),
+    description: t('portfolio.projects.ecommerce.description'),
+    tech: ["Python", "AI", "NLP", "Cloud"],
+    image: "/project4.jpg",
+  },
+];
+---
+
+<section class="py-20" id="portfolio">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 animate-fade-in">
+      <h2 class="text-4xl font-bold mb-4">{t('portfolio.title')}</h2>
+      <p class="text-gray-400 text-lg">
+        {t('portfolio.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+      {projects.map((project, index) => (
+        <div class={`project-card bg-gray-800/50 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-gray-800/70 transition-all duration-300`} style={`animation-delay: ${index * 0.1}s`}>
+          <div class="h-48 bg-gradient-to-br from-blue/20 to-green/20 flex items-center justify-center">
+            <div class="text-6xl text-green/50">📱</div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+            <p class="text-gray-400 mb-4">{project.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {project.tech.map((item) => (
+                <span class="px-3 py-1 bg-blue/20 text-blue text-sm rounded-full">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .project-card {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: transform 0.3s ease, scale 0.3s ease, background-color 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px) scale(1.02);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scroll-triggered animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .project-card {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .project-card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease-out;
+    }
+  }
+</style>
+
+<script>
+  // Add intersection observer for scroll animations
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    document.querySelectorAll('.project-card').forEach((card) => {
+      observer.observe(card);
+    });
+  }
+</script>

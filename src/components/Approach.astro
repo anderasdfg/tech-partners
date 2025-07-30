@@ -1,0 +1,103 @@
+---
+import { useTranslations } from '../lib/i18n';
+import { getLangFromUrl } from '../lib/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="py-20 relative overflow-hidden" id="approach">
+  <div class="absolute inset-0 z-0">
+    <!-- Animated background -->
+  </div>
+  <div class="relative z-10 container mx-auto px-4 text-center">
+    <div class="animate-fade-in">
+      <h2 class="text-4xl font-bold mb-8">
+        {t('approach.title')}
+      </h2>
+      <p class="text-gray-400 text-lg mb-12">
+        {t('approach.subtitle')}
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="approach-card text-center p-6" style="animation-delay: 0s">
+        <div class="text-4xl mb-4">🔍</div>
+        <h3 class="text-xl font-bold mb-2">{t('approach.discovery.title')}</h3>
+        <p class="text-gray-400">{t('approach.discovery.description')}</p>
+      </div>
+      
+      <div class="approach-card text-center p-6" style="animation-delay: 0.2s">
+        <div class="text-4xl mb-4">🎨</div>
+        <h3 class="text-xl font-bold mb-2">{t('approach.design.title')}</h3>
+        <p class="text-gray-400">{t('approach.design.description')}</p>
+      </div>
+      
+      <div class="approach-card text-center p-6" style="animation-delay: 0.4s">
+        <div class="text-4xl mb-4">⚙️</div>
+        <h3 class="text-xl font-bold mb-2">{t('approach.development.title')}</h3>
+        <p class="text-gray-400">{t('approach.development.description')}</p>
+      </div>
+      
+      <div class="approach-card text-center p-6" style="animation-delay: 0.6s">
+        <div class="text-4xl mb-4">🚀</div>
+        <h3 class="text-xl font-bold mb-2">{t('approach.deployment.title')}</h3>
+        <p class="text-gray-400">{t('approach.deployment.description')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  .approach-card {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scroll-triggered animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .approach-card {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .approach-card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.5s ease-out;
+    }
+  }
+</style>
+
+<script>
+  // Add intersection observer for scroll animations
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    document.querySelectorAll('.approach-card').forEach((card) => {
+      observer.observe(card);
+    });
+  }
+</script>

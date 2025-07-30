@@ -7,4 +7,11 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [tailwind(), react()],
   site: 'https://tech-partners.example.com',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

@@ -1,72 +1,103 @@
+---
+import { useTranslations } from '../lib/i18n';
+import { getLangFromUrl } from '../lib/i18n';
+import LanguageSwitch from './LanguageSwitch';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
 <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-md">
   <nav class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <span class="bg-clip-text text-transparent bg-gradient-to-b from-blue to-green">
         <a href="/" class="text-2xl font-bold">
-          Tech Partners
+          {t('nav.brand')}
         </a>
       </span>
-      
+
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="#home" class="text-gray-300 hover:text-green transition-colors">
-          Home
+          {t('nav.home')}
         </a>
         <a href="#services" class="text-gray-300 hover:text-green transition-colors">
-          Services
+          {t('nav.services')}
         </a>
         <a href="#portfolio" class="text-gray-300 hover:text-green transition-colors">
-          Portfolio
+          {t('nav.portfolio')}
         </a>
         <a href="#approach" class="text-gray-300 hover:text-green transition-colors">
-          Approach
+          {t('nav.approach')}
         </a>
         <a href="#contact" class="text-gray-300 hover:text-green transition-colors">
-          Contact
+          {t('nav.contact')}
         </a>
+        <!-- Language Switch -->
+        <div class="ml-4">
+          <LanguageSwitch client:load />
+        </div>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button
-        id="mobile-menu-button"
-        class="md:hidden text-gray-300 hover:text-green transition-colors"
-        aria-label="Menu"
-        aria-expanded="false"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <!-- Mobile Menu Button and Language Switch -->
+      <div class="md:hidden flex items-center space-x-4">
+        <LanguageSwitch client:load />
+        <button
+          id="mobile-menu-button"
+          class="text-gray-300 hover:text-green transition-colors"
+          aria-label="Menu"
+          aria-expanded="false"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4">
+    <div id="mobile-menu" class="md:hidden mt-4 hidden">
       <div class="flex flex-col space-y-4 pb-4">
-        <a href="#home" class="text-gray-300 hover:text-green transition-colors">
-          Home
+        <a
+          href="#home"
+          class="text-gray-300 hover:text-green transition-colors mobile-menu-link"
+        >
+          {t('nav.home')}
         </a>
-        <a href="#services" class="text-gray-300 hover:text-green transition-colors">
-          Services
+        <a
+          href="#services"
+          class="text-gray-300 hover:text-green transition-colors mobile-menu-link"
+        >
+          {t('nav.services')}
         </a>
-        <a href="#portfolio" class="text-gray-300 hover:text-green transition-colors">
-          Portfolio
+        <a
+          href="#portfolio"
+          class="text-gray-300 hover:text-green transition-colors mobile-menu-link"
+        >
+          {t('nav.portfolio')}
         </a>
-        <a href="#approach" class="text-gray-300 hover:text-green transition-colors">
-          Approach
+        <a
+          href="#approach"
+          class="text-gray-300 hover:text-green transition-colors mobile-menu-link"
+        >
+          {t('nav.approach')}
         </a>
-        <a href="#contact" class="text-gray-300 hover:text-green transition-colors">
-          Contact
+        <a
+          href="#contact"
+          class="text-gray-300 hover:text-green transition-colors mobile-menu-link"
+        >
+          {t('nav.contact')}
         </a>
       </div>
     </div>
@@ -74,12 +105,43 @@
 </header>
 
 <script>
+  // Mobile menu functionality
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-  mobileMenuButton?.addEventListener('click', () => {
-    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-    mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-    mobileMenu?.classList.toggle('hidden');
-  });
-</script> 
+  if (mobileMenuButton && mobileMenu) {
+    let isMenuOpen = false;
+
+    mobileMenuButton.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      
+      if (isMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu when clicking on links
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        isMenuOpen = false;
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenuButton.contains(event.target as Node) && 
+          !mobileMenu.contains(event.target as Node)) {
+        isMenuOpen = false;
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

@@ -1,7 +1,9 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import { useTranslation } from '../lib/i18n';
 
 export default function Hero() {
+    const { t } = useTranslation();
     return (
         <section className="relative h-screen" id="home">
             <div className="absolute inset-0 z-0">
@@ -23,14 +25,17 @@ export default function Hero() {
             </div>
             <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
                 <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
-                    Technology that evolves with you.
+                    {t('hero.title')}
                 </h1>
                 <p className="text-lg md:text-xl text-green mb-8">
-                    Digital solutions. Without limits. In the cloud. With AI. Tailored for you.
+                    {t('hero.subtitle')}
                 </p>
-                <button className="bg-green text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-blue transition-colors">
-                    Explore without limits
-                </button>
+                <a
+                    href="#services"
+                    className="bg-green text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-blue transition-colors inline-block"
+                >
+                    {t('hero.cta')}
+                </a>
             </div>
         </section>
     );
