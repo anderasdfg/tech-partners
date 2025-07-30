@@ -1,0 +1,133 @@
+---
+import { useTranslations } from '../lib/i18n';
+import { getLangFromUrl } from '../lib/i18n';
+import WebIcon from './icons/WebIcon.astro';
+import MobileIcon from './icons/MobileIcon.astro';
+import AIIcon from './icons/AIIcon.astro';
+import CloudIcon from './icons/CloudIcon.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="py-20" id="services">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 animate-fade-in">
+      <h2 class="text-4xl font-bold mb-4">
+        {t('services.title')}
+      </h2>
+      <p class="text-gray-400 text-lg">
+        {t('services.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="service-card text-center p-6 rounded-lg">
+        <div class="mb-4 text-green text-6xl">
+          <WebIcon />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">{t('services.web.title')}</h3>
+        <p class="text-gray-400">{t('services.web.description')}</p>
+      </div>
+
+      <div class="service-card text-center p-6 rounded-lg">
+        <div class="mb-4 text-green text-6xl">
+          <MobileIcon />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">{t('services.mobile.title')}</h3>
+        <p class="text-gray-400">{t('services.mobile.description')}</p>
+      </div>
+
+      <div class="service-card text-center p-6 rounded-lg">
+        <div class="mb-4 text-green text-6xl">
+          <AIIcon />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">{t('services.ai.title')}</h3>
+        <p class="text-gray-400">{t('services.ai.description')}</p>
+      </div>
+
+      <div class="service-card text-center p-6 rounded-lg">
+        <div class="mb-4 text-green text-6xl">
+          <CloudIcon />
+        </div>
+        <h3 class="text-2xl font-bold mb-2">{t('services.cloud.title')}</h3>
+        <p class="text-gray-400">{t('services.cloud.description')}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .service-card {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: transform 0.3s ease, scale 0.3s ease;
+  }
+
+  .service-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .service-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .service-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .service-card:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px) scale(1.05);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scroll-triggered animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .service-card {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .service-card.in-view {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease-out;
+    }
+  }
+</style>
+
+<script>
+  // Add intersection observer for scroll animations
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    document.querySelectorAll('.service-card').forEach((card) => {
+      observer.observe(card);
+    });
+  }
+</script>

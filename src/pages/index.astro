@@ -1,16 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.tsx';
+import Services from '../components/Services.astro';
 import Portfolio from '../components/Portfolio.astro';
-import About from '../components/About.astro';
-import FAQ from '../components/FAQ.astro';
-import Contact from '../components/Contact.astro';
+import Approach from '../components/Approach.astro';
+import Contact from '../components/Contact.tsx';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Tech Partners - Your Digital Transformation Partner">
-	<Hero />
+<Layout title="Tech Partners - Technology that evolves with you" lang="en">
+	<Navigation />
+	<Hero client:load />
+	<Services />
 	<Portfolio />
-	<About />
-	<FAQ />
-	<Contact />
+	<Approach />
+	<Contact client:load />
+	<Footer />
 </Layout>
