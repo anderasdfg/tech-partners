@@ -7,24 +7,28 @@ const t = useTranslations(lang);
 
 const projects = [
   {
+    slug: "ecommerce",
     title: t('portfolio.projects.ecommerce.title'),
     description: t('portfolio.projects.ecommerce.description'),
     tech: ["React", "Node.js", "AI", "Cloud"],
     image: "/project1.jpg",
   },
   {
-    title: t('portfolio.projects.fintech.title'),
-    description: t('portfolio.projects.fintech.description'),
-    tech: ["React Native", "Blockchain", "Security"],
-    image: "/project2.jpg",
+    slug: "clinqapp",
+    title: t('portfolio.projects.clinqapp.title'),
+    description: t('portfolio.projects.clinqapp.description'),
+    tech: ["React", "TypeScript", "TailwindCSS"],
+    image: "https://www.clinqapp.net/mockup.png",
   },
   {
+    slug: "healthcare",
     title: t('portfolio.projects.healthcare.title'),
     description: t('portfolio.projects.healthcare.description'),
     tech: ["Vue.js", "IoT", "Real-time", "Analytics"],
     image: "/project3.jpg",
   },
   {
+    slug: "ecommerce-advanced",
     title: t('portfolio.projects.ecommerce.title'),
     description: t('portfolio.projects.ecommerce.description'),
     tech: ["Python", "AI", "NLP", "Cloud"],
@@ -44,9 +48,9 @@ const projects = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
       {projects.map((project, index) => (
-        <div class={`project-card bg-gray-800/50 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-gray-800/70 transition-all duration-300`} style={`animation-delay: ${index * 0.1}s`}>
-          <div class="h-48 bg-gradient-to-br from-blue/20 to-green/20 flex items-center justify-center">
-            <div class="text-6xl text-green/50">📱</div>
+        <a href={`/projects/${project.slug}`} class={`project-card bg-gray-800/50 backdrop-blur-sm rounded-lg overflow-hidden hover:bg-gray-800/70 transition-all duration-300 cursor-pointer block`} style={`animation-delay: ${index * 0.1}s`}>
+          <div class="h-64 bg-gradient-to-br from-blue/20 to-green/20 flex items-center justify-center overflow-hidden p-2 project-image-container">
+            <img src={project.image} alt={project.title} class="w-11/12 h-11/12 object-contain grayscale project-image transition-all duration-[2000ms]" />
           </div>
           <div class="p-6">
             <h3 class="text-xl font-bold mb-2">{project.title}</h3>
@@ -59,7 +63,7 @@ const projects = [
               ))}
             </div>
           </div>
-        </div>
+        </a>
       ))}
     </div>
   </div>
@@ -81,6 +85,16 @@ const projects = [
 
   .project-card:hover {
     transform: translateY(-5px) scale(1.02);
+  }
+
+  .project-image {
+    filter: grayscale(100%) contrast(1);
+    transform: scale(1);
+  }
+
+  .project-image-container:hover .project-image {
+    filter: grayscale(0%) contrast(1.1) saturate(1.3);
+    transform: scale(1.15);
   }
 
   @keyframes fadeInUp {

@@ -39,9 +39,9 @@ export const ui = {
     'portfolio.projects.ecommerce.title': 'E-commerce Platform',
     'portfolio.projects.ecommerce.description':
       'Modern e-commerce solution with AI-powered recommendations and real-time analytics.',
-    'portfolio.projects.fintech.title': 'FinTech Mobile App',
-    'portfolio.projects.fintech.description':
-      'Secure financial application with biometric authentication and blockchain integration.',
+    'portfolio.projects.clinqapp.title': 'ClinqApp',
+    'portfolio.projects.clinqapp.description':
+      'Platform for podiatrists with appointment management, billing, and patient tracking.',
     'portfolio.projects.healthcare.title': 'Healthcare Management',
     'portfolio.projects.healthcare.description':
       'Comprehensive patient management system with telemedicine capabilities.',
@@ -121,9 +121,9 @@ export const ui = {
     'portfolio.projects.ecommerce.title': 'Plataforma E-commerce',
     'portfolio.projects.ecommerce.description':
       'Solución de comercio electrónico moderna con recomendaciones impulsadas por IA y analíticas en tiempo real.',
-    'portfolio.projects.fintech.title': 'App Móvil FinTech',
-    'portfolio.projects.fintech.description':
-      'Aplicación financiera segura con autenticación biométrica e integración blockchain.',
+    'portfolio.projects.clinqapp.title': 'ClinqApp',
+    'portfolio.projects.clinqapp.description':
+      'Plataforma para podólogos con gestión de citas, facturación y seguimiento de pacientes.',
     'portfolio.projects.healthcare.title': 'Gestión Sanitaria',
     'portfolio.projects.healthcare.description':
       'Sistema integral de gestión de pacientes con capacidades de telemedicina.',
