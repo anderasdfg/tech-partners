@@ -38,7 +38,7 @@ export const ui = {
     'portfolio.viewProject': 'View Project',
     'portfolio.projects.ecommerce.title': 'E-commerce Platform',
     'portfolio.projects.ecommerce.description':
-      'Modern e-commerce solution with AI-powered recommendations and real-time analytics.',
+      'Modern e-commerce platform featuring product catalog management, advanced search, shopping cart, secure payment processing, administrative tools and chatbot assistant.',
     'portfolio.projects.clinqapp.title': 'ClinqApp',
     'portfolio.projects.clinqapp.description':
       'Platform for podiatrists with appointment management, billing, and patient tracking.',
