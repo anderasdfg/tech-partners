@@ -15,37 +15,52 @@ const t = useTranslations(lang);
     <main class="flex-1 container mx-auto px-4 py-20">
       <div class="max-w-4xl mx-auto">
         <div class="mb-12 animate-fade-in">
+          <h1 class="text-2xl font-bold mb-8">ECommerce plattform</h1>
           <p class="text-xl text-gray-400 mb-8">
             Plataforma de comercio electrónico moderna con gestión de catálogo de productos, búsqueda avanzada, carrito de compras, pagos seguros, herramientas administrativas y un asistente virtual.
           </p>
         </div>
 
-        <div class="mb-12 animate-fade-in" style="animation-delay: 0.1s">
-          <div class="flex items-center justify-center h-96 overflow-hidden">
-            <img 
-              src="/images/ecommerce/ecommerce-main-page.JPG"
-              alt="ecommerce-main-page"
-              class="max-w-full h-full object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
-            />
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-8">Descripción del Proyecto</h2>
+          <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8 mb-12 animate-fade-in" style="animation-delay: 0.2s">
+            <p class="text-gray-300 leading-relaxed">
+              Plataforma de comercio electrónico moderna que combina una experiencia de compra rápida y segura para los clientes con herramientas de gestión para administradores.
+              Incluye catálogo de productos, búsqueda avanzada, carrito de compras, pagos en línea, asistente virtual y un panel administrativo para la gestión de inventario, productos, pedidos y clientes.
+            </p>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-          <div class="animate-fade-in" style="animation-delay: 0.2s">
-                <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8 h-full flex items-center justify-center">
-                <img
-                    src="/images/ecommerce/ecommerce-main-page.JPG"
-                    alt="ecommerce-main-page"
-                />
-                </div>
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold mb-8">Demostración de Módulos</h2>
+          
+          {/* Módulo de Ventas */}
+          <div class="mb-12 animate-fade-in" style="animation-delay: 0.3s">
+            <h3 class="text-xl font-semibold mb-4 text-blue-400">Módulo de Ventas</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 h-auto">
+              <video 
+                controls 
+                class="w-full h-auto rounded-lg shadow-lg"
+                style="max-height: 500px; object-fit: contain;"
+              >
+                <source src="/videos/ecommerce.mp4" type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
+            </div>
           </div>
-          <div class="animate-fade-in" style="animation-delay: 0.3s">
-            <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-8 h-full">
-              <h2 class="text-2xl font-bold mb-4">Descripción del Proyecto</h2>
-              <p class="text-gray-300 leading-relaxed mb-4">
-                Plataforma de comercio electrónico moderna que combina una experiencia de compra rápida y segura para los clientes con herramientas de gestión para administradores.
-                Incluye catálogo de productos, búsqueda avanzada, carrito de compras, pagos en línea, asistente virtual y un panel administrativo para la gestión de inventario, productos, pedidos y clientes.
-              </p>
+
+          {/* Módulo Administrativo */}
+          <div class="animate-fade-in" style="animation-delay: 0.4s">
+            <h3 class="text-xl font-semibold mb-4 text-blue-400">Módulo Administrativo</h3>
+            <div class="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 h-auto">
+              <video 
+                controls 
+                class="w-full h-auto rounded-lg shadow-lg"
+                style="max-height: 500px; object-fit: contain;"
+              >
+                <source src="/videos/ecommerce-admin.mp4" type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
             </div>
           </div>
         </div>
@@ -66,15 +81,12 @@ const t = useTranslations(lang);
                 ].map((feature) => (
                   <div class="feature-card group">
                     <div class="feature-image">
-                    {feature.icon.startsWith("/") ? (
                         <img
                         src={feature.icon}
                         alt={feature.title}
-                        class="w-64 h-64 md:w-80 md:h-80 object-contain"
+                        class="w-64 h-64 md:w-80 md:h-80 object-contain lightbox-image cursor-pointer"
+                        data-full-size={feature.icon}
                         />
-                    ) : (
-                        <span class="text-5xl md:text-6xl">{feature.icon}</span>
-                    )}
                     </div>
                     <div class="feature-content">
                       <p class="font-semibold text-center text-gray-100">{feature.title}</p>
@@ -86,17 +98,22 @@ const t = useTranslations(lang);
 
             <div>
               <h3 class="text-2xl font-bold mb-6">Módulo administrativo</h3>
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                 {[
-                  { title: "Gestión de productos", icon: "🏷️" },
-                  { title: "Gestión de inventario", icon: "📊" },
-                  { title: "Gestión de pedidos", icon: "📦" },
-                  { title: "Gestión de usuarios", icon: "👥" },
-                  { title: "Reportes y estadísticas", icon: "📈" }
+                  { title: "Gestión de productos", icon: "/images/ecommerce/ecommerce-admin-productos.JPG" },
+                  { title: "Gestión de inventario", icon: "/images/ecommerce/ecommerce-admin-inventario.JPG" },
+                  { title: "Gestión de pedidos", icon: "/images/ecommerce/ecommerce-admin-pedidos.JPG" },
+                  { title: "Gestión de usuarios", icon: "/images/ecommerce/ecommerce-admin-usuarios.JPG" },
+                  { title: "Reportes y estadísticas", icon: "/images/ecommerce/ecommerce-admin-dashboard.JPG" }
                 ].map((feature) => (
-                  <div class="feature-card group">
+                   <div class="feature-card group">
                     <div class="feature-image">
-                      <span class="text-5xl">{feature.icon}</span>
+                        <img
+                        src={feature.icon}
+                        alt={feature.title}
+                        class="w-64 h-64 md:w-80 md:h-80 object-contain lightbox-image cursor-pointer"
+                        data-full-size={feature.icon}
+                        />
                     </div>
                     <div class="feature-content">
                       <p class="font-semibold text-center text-gray-100">{feature.title}</p>
@@ -131,6 +148,15 @@ const t = useTranslations(lang);
         </div>
       </div>
     </main>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content">
+      <button id="lightboxClose" class="lightbox-close">&times;</button>
+      <img id="lightboxImage" src="" alt="Imagen ampliada" class="lightbox-img" />
+    </div>
   </div>
 </Layout>
 
@@ -194,4 +220,129 @@ const t = useTranslations(lang);
     font-size: 0.95rem;
     line-height: 1.4;
   }
+
+  /* Lightbox Styles */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
+
+  .lightbox-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .lightbox-content {
+    position: relative;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    max-height: 90vh;
+    animation: zoomIn 0.3s ease;
+  }
+
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-close:hover {
+    transform: scale(1.2);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 </style>
+
+<script>
+  // Lightbox functionality
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxImages = document.querySelectorAll('.lightbox-image');
+
+  // Open lightbox when clicking on an image
+  lightboxImages.forEach(img => {
+    img.addEventListener('click', (e) => {
+      const imageSrc = img.dataset.fullSize || img.src;
+      lightboxImage.src = imageSrc;
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+  });
+
+  // Close lightbox when clicking on the close button
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // Close lightbox when clicking on the overlay
+  lightboxOverlay.addEventListener('click', closeLightbox);
+
+  // Close lightbox when pressing ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+
+  function closeLightbox() {
+    lightboxModal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  }
+</script>
